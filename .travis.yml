@@ -13,7 +13,7 @@ cache:
 before_script:
     - ls & sleep 50
     - npm install -g gulp
-    - node_modules/protractor/bin/webdriver-manager update
+    - npm run update-webdriver
 
 script:
     # start xvbfb, required for e2e tests
@@ -21,4 +21,4 @@ script:
     - export DISPLAY=:99
     - sleep 5 # give xvfb some time to start
     # start the webdriver and run e2e tests with protractor
-    - (node_modules/protractor/binwebdriver-manager start &> /tmp/selenium.log ) & (sleep 10 && npm run gulp & npm run test && sleep 5 )
+    - (npm run start-webdriver &> /tmp/selenium.log ) & (sleep 10 && npm run gulp & npm run test && sleep 5 )
