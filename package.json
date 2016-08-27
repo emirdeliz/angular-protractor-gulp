@@ -17,7 +17,6 @@
         "gulp-inject": "^4.1.0",
         "gulp-jshint": "^1.6.1",
         "gulp-main-bower-files": "^1.5.2",
-        "gulp-protractor": "^3.0.0",
         "gulp-rename": "^1.2.0",
         "gulp-sass": "^2.3.2",
         "gulp-uglify": "^0.2.1",
