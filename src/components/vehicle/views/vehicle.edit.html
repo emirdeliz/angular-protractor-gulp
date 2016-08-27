@@ -1,0 +1,38 @@
+<div class="content" ng-init="init()">
+    <h2>Edição Veículo</h2>
+    <form name="userForm" novalidate>
+        <label class="label required">Placa</label>
+        <p class="control">
+            <input type="text" value="" class="input" ng-model="vehicle.plate" required>
+        </p>
+        <label class="label required">Modelo</label>
+        <p class="control">
+            <input type="text" value="" class="input" ng-model="vehicle.model" required>
+        </p>
+        <label class="label required">Marca</label>
+        <p class="control">
+            <input type="text" value="" class="input" ng-model="vehicle.brand" required>
+        </p>
+        <label class="label">Foto</label>
+        <div file-upload-directive fileread="vehicle.image"></div>
+        <label class="label">Combústivel</label>
+        <p class="control">
+            <span class="select">
+                <select ng-model="vehicle.fuel">
+                    <option value=""></option>
+                    <option value="gasolina">Gasolina</option>
+                    <option value="alcool">Alcool</option>
+                    <option value="flex">Flex</option>
+                </select>
+            </span>
+        </p>
+        <label class="label required">Valor</label>
+        <p class="control">
+            <input type="text" value="" class="input" ng-model="vehicle.value" ui-number-mask="2" min="1" required>
+        </p>
+    </form>
+</div>
+<div class="container-button">
+    <a class="button button-normal is-success" href="#close" ng-click="save(vehicle)" ng-disabled="!userForm.$valid">Salvar</a>
+    <a class="button button-normal" href="#close" ng-click="cancel()">Cancelar</a>
+</div>

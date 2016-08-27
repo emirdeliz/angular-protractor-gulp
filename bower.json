@@ -1,0 +1,19 @@
+{
+  "name": "angular-sample",
+  "description": "Angular Sample",
+  "authors": [
+    "<emir.liz>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/emirdeliz/meus-projetos",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "angular-mocks": "^1.5.7",
+    "jasmine-core": "jasmine#^2.4.1",
+    "bulma": "^0.1.0",
+    "angular-resource": "^1.5.7",
+    "angular-input-masks": "^2.4.0",
+    "angular-i18n": "^1.5.7"
+  }
+}

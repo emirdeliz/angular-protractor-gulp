@@ -1,0 +1,54 @@
+<a class="button button-normal is-success" href="#" ng-click="addCar()">Novo Carro</a>
+<p class="control has-addons search-box">
+    <input class="input" type="text" placeholder="Pesquisar" ng-model="query">
+    <a class="button button-zoom"><i class="zoom"></i></a>
+</p>
+<table class="table" ng-init="init()">
+    <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <div ng-click="selectAllVehicle()">
+                        <label ng-class="{'checked' : selectAll}"></label>
+                    </div>
+                </div>
+            </th>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Foto</th>
+            <th>Combustivel</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr ng-repeat="vehicle in vehicles | vehicleFilter: query" ng-class="{'selected' : vehicle.selected}">
+            <td>
+                <div class="checkbox">
+                    <div ng-click="vehicle.selected = !vehicle.selected">
+                        <label ng-class="{'checked' : vehicle.selected}"></label>
+                    </div>
+                </div>
+            </td>
+            <td ng-click="editCar(vehicle)">{{vehicle.plate}}</td>
+            <td>{{vehicle.model}}</td>
+            <td>{{vehicle.brand}}</td>
+            <td>
+                <span ng-if="!vehicle.image">Sem foto</span>
+                <a ng-if="vehicle.image" href="{{vehicle.image}}">
+                    Imagem
+                </a>
+            </td>
+            <td>{{vehicle.fuel}}</td>
+            <td>{{vehicle.value | currency : 'R$'}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="container-pagination" ng-show="numPages > 1">
+    <div class="pagination">
+        <div ng-click="prevPage()" ng-class="{'disabled': currentPage < 1}"></div>
+        <div ng-click="showVehicle($index)" ng-repeat="index in getNumPages() track by $index" ng-class="{'selected-page': currentPage == $index}">{{$index +1}}</div>
+        <div ng-click="nextPage()" ng-class="{'disabled': (currentPage +1) == numPages}"></div>
+    </div>
+</div>

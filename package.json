@@ -1,0 +1,30 @@
+{
+  "name": "example-project",
+  "private": true,
+  "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/emirdeliz/angular-protractor-gulp"
+  },
+  "scripts": {
+    "gulp": "node node_modules/gulp/bin/gulp.js",
+    "test": "npm run gulp test"
+  },
+  "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-angular-protractor": "^0.1.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-jshint": "^1.6.1",
+    "gulp-main-bower-files": "^1.5.2",
+    "gulp-protractor": "^3.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^0.2.1",
+    "gulp-util": "^2.2.16",
+    "gulp-watch": "^0.6.5",
+    "gulp-webserver": "^0.9.1",
+    "minimist": "^0.1.0"
+  },
+  "dependencies": {}
+}
