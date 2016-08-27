@@ -18,11 +18,9 @@ before_script:
     - sleep 2
 
 script:
-    # run unit tests with gulp
-    - npm run test
     # start xvbfb, required for e2e tests
     - Xvfb :99 &
     - export DISPLAY=:99
     - sleep 5 # give xvfb some time to start
     # start the webdriver and run e2e tests with protractor
-    - ( ./e2e_tests/node_modules/protractor/bin/webdriver-manager start &> /tmp/selenium.log ) & (sleep 10 && gulp e2e_tests && sleep 5 )
+    - (npm run start start &> /tmp/selenium.log ) & (sleep 10 && npm run test && sleep 5)
