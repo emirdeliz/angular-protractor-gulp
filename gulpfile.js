@@ -80,10 +80,8 @@ gulp.task('watch', ['build'], function () {
     gulp.watch([buildConfig.jsFiles, buildConfig.sassFiles], ['build']);
 });
 
-gulp.task('webserver', function() {
-    gulp.src('build')
-    .pipe(webserver({
-        port: 4455,
+gulp.task('webserver-start', function() {
+    gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
         open: false
@@ -92,16 +90,16 @@ gulp.task('webserver', function() {
 
 // kill -9 $(lsof -ti tcp:4444)
 gulp.task('test', function(done) {
-    gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
+    return gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
 	   .pipe(angularProtractor({
 		configFile: 'protractor.config.js',
-		args: ['--baseUrl', 'http://127.0.0.1:4455'],
+		args: ['--baseUrl', 'http://127.0.0.1:8080'],
 		autoStartStopServer: true,
 		debug: false
 	})).on('error', function(e) {
         console.log('Error: ' + e.message);
         throw e;
-    });
+    })
 });
 
 gulp.task('check-jshint', function (){
@@ -110,4 +108,4 @@ gulp.task('check-jshint', function (){
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('default', ['check-jshint', 'build', 'webserver', 'watch']);
+gulp.task('default', ['check-jshint', 'build', 'webserver-start', 'watch']);
