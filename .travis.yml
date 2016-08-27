@@ -4,10 +4,12 @@ node_js:
     - "4.3.1"
 
 addons:
-  packages:
-    - unzip
-    - dpkg
-    - google-chrome-stable
+    apt:
+        sources:
+            - google-chrome
+    packages:
+        - unzip
+        - google-chrome-stable
 
 cache:
     apt: true
@@ -17,14 +19,9 @@ cache:
         - node_modules
 
 before_install:
-    # Install Chrome
-    - export CHROME_BIN=/usr/bin/google-chrome
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
-    - sudo apt-get update
-    - sudo apt-get install -y libappindicator1 fonts-liberation
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i google-chrome*.deb
+    - sleep 3
 
     # Install Chrome driver
     - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
