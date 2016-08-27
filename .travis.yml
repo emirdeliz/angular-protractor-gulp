@@ -11,8 +11,9 @@ cache:
         - node_modules
 
 before_script:
+    - ls & sleep 50
     - npm install -g gulp
-    - ./node_modules/protractor/bin/webdriver-manager update
+    - ./angular-protractor-gulp/node_modules/protractor/bin/webdriver-manager update
 
 script:
     # start xvbfb, required for e2e tests
