@@ -80,7 +80,7 @@ gulp.task('watch', ['build'], function () {
     gulp.watch([buildConfig.jsFiles, buildConfig.sassFiles], ['build']);
 });
 
-gulp.task('webserver-start', function() {
+gulp.task('webserver', function() {
     gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
@@ -108,4 +108,4 @@ gulp.task('check-jshint', function (){
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('default', ['check-jshint', 'build', 'webserver-start', 'watch']);
+gulp.task('default', ['check-jshint', 'build', 'webserver', 'watch']);

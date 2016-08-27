@@ -10,6 +10,18 @@ cache:
         - $(npm config get prefix)/bin/gulp
         - node_modules
 
+before_install:
+    # Install Chrome driver
+    - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+    - unzip chromedriver_linux64.zip
+    - sudo chmod u+x chromedriver
+    - sudo mv chromedriver /usr/bin/
+
+    # For selenium in headless linux system, But no need when PhantomJS
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - sleep 3 # give xvfb some time to start
+
 before_script:
     - ls & sleep 50
     - npm install -g bower webdriver-manager
