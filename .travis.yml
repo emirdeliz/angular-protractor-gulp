@@ -1,25 +1,23 @@
-sudo: required
-dist: trusty
 language: node_js
+sudo: false
 node_js:
-    - "4.2"
+    - "4.2.1"
 
-before_install:
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    - sudo apt-get update
-    - sudo apt-get install google-chrome-stable
+cache:
+    apt: true
+    directories:
+        # cache for all npm packages needed
+        - $(npm config get prefix)/bin/gulp
+        - node_modules
 
 before_script:
-    - "export DISPLAY=:99.0"
-    - nohup bash -c "./node_modules/protractor/bin/webdriver-manager start 2>&1 &"
-    - sleep 5
-    - npm install -g bower
-    - bower install
+    - npm install -g gulp
+    - ./node_modules/protractor/bin/webdriver-manager update
 
 script:
+    # start xvbfb, required for e2e tests
     - Xvfb :99 &
     - export DISPLAY=:99
-    - sleep 10 # give xvfb some time to start
+    - sleep 5 # give xvfb some time to start
     # start the webdriver and run e2e tests with protractor
-    - npm run gulp & npm run test
+    - ( ./node_modules/protractor/bin/webdriver-manager start &> /tmp/selenium.log ) & (sleep 10 && npm run gulp & npm run test && sleep 5 )
