@@ -12,7 +12,7 @@ cache:
 
 before_script:
     - ls & sleep 50
-    - npm install -g gulp webdriver-manager
+    - npm install -g bower webdriver-manager
     - bower install
     - webdriver-manager update
 
