@@ -15,12 +15,12 @@ before_script:
     - npm install -g bower
     - bower install
     - npm run gulp &
-    - sleep 2
+    - sleep 30
 
 script:
     # start xvbfb, required for e2e tests
     - Xvfb :99 &
     - export DISPLAY=:99
-    - sleep 5 # give xvfb some time to start
+    - sleep 30 # give xvfb some time to start
     # start the webdriver and run e2e tests with protractor
-    - (npm run start start &> /tmp/selenium.log ) & (sleep 10 && npm run test && sleep 5)
+    - npm run test && sleep 5
