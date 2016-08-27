@@ -1,23 +1,29 @@
 language: node_js
-sudo: required
-dist: trusty
+sudo: false
 
 node_js:
     - "node"
 
-before_install:
-    - export CHROME_BIN=/usr/bin/google-chrome
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
-    - sudo apt-get update
-    - sudo apt-get install -y libappindicator1 fonts-liberation
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i google-chrome*.de
+cache:
+    apt: true
+    directories:
+        # cache for all npm packages needed
+        - $(npm config get prefix)/bin/gulp
+        - node_modules
 
 before_script:
     - npm install -g bower
     - bower install
     - npm run gulp &
     - sleep 2
+    - ./node_modules/protractor/bin/webdriver-manager update
 
-script: npm run test
+script:
+    # run unit tests with gulp
+    - npm run test
+    # start xvbfb, required for e2e tests
+    - Xvfb :99 &
+    - export DISPLAY=:99
+    - sleep 5 # give xvfb some time to start
+    # start the webdriver and run e2e tests with protractor
+    - ( ./e2e_tests/node_modules/protractor/bin/webdriver-manager start &> /tmp/selenium.log ) & (sleep 10 && gulp e2e_tests && sleep 5 )
