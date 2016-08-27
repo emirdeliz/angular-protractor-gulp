@@ -6,6 +6,7 @@ node_js:
 addons:
   packages:
     - unzip
+    - dpkg
     - google-chrome-stable
 
 cache:
