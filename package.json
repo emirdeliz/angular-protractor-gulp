@@ -8,8 +8,8 @@
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp.js",
     "test": "node node_modules/gulp/bin/gulp.js test",
-    "update-webdriver": "node node_modules/.bin/webdriver-manager update",
-    "start-webdriver": "node node_modules/.bin/webdriver-manager start"
+    "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
+    "start-webdriver": "node node_modules/protractor/bin/webdriver-manager start"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
