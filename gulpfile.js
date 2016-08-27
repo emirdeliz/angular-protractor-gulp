@@ -81,7 +81,7 @@ gulp.task('watch', ['build'], function () {
 });
 
 gulp.task('webserver', function() {
-    gulp.src('build').pipe(webserver({
+    return gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
         open: false
@@ -89,7 +89,7 @@ gulp.task('webserver', function() {
 });
 
 // kill -9 $(lsof -ti tcp:4444)
-gulp.task('test', function(done) {
+gulp.task('test', ['webserver'], function(done) {
     return gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
 	   .pipe(angularProtractor({
 		configFile: 'protractor.config.js',

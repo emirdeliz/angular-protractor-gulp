@@ -36,8 +36,7 @@ before_script:
     - npm install -g bower webdriver-manager
     - bower install
     - webdriver-manager update
-    - npm run gulp
-    - sleep 100
+    - sleep 5
 
 script:
     - npm run test
