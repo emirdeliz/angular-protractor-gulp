@@ -32,15 +32,12 @@ before_install:
     - sudo mv chromedriver /usr/bin/
 
 before_script:
-    - ls & sleep 50
+    - ls
     - npm install -g bower webdriver-manager
     - bower install
     - webdriver-manager update
+    - npm run gulp
+    - sleep 100
 
 script:
-    # start xvbfb, required for e2e tests
-    - Xvfb :99 &
-    - export DISPLAY=:99
-    - sleep 5 # give xvfb some time to start
-    # start the webdriver and run e2e tests with protractor
-    - (npm run webdriver-manager start &> /tmp/selenium.log ) & (sleep 10 && npm run gulp & npm run test && sleep 5 )
+    - npm run test
