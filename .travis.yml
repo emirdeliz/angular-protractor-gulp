@@ -6,6 +6,7 @@ node_js:
 before_script:
   - npm install -g bower
   - bower install
-  - npm run gulp
+  - npm run gulp &
+  - sleep 2
 
 script: npm run test
