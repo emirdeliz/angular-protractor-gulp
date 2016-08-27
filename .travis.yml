@@ -16,7 +16,6 @@ before_script:
     - bower install
     - npm run gulp &
     - sleep 2
-    - ./node_modules/protractor/bin/webdriver-manager update
 
 script:
     # run unit tests with gulp
