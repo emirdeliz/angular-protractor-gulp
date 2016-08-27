@@ -83,6 +83,7 @@ gulp.task('watch', ['build'], function () {
 gulp.task('webserver', function() {
     gulp.src('build')
     .pipe(webserver({
+        port: 4455,
         livereload: true,
         directoryListing: false,
         open: false
@@ -94,7 +95,7 @@ gulp.task('test', ['webserver'], function(done) {
     gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
 	   .pipe(angularProtractor({
 		configFile: 'protractor.config.js',
-		args: ['--baseUrl', 'http://127.0.0.1:8000'],
+		args: ['--baseUrl', 'http://127.0.0.1:4455'],
 		autoStartStopServer: true,
 		debug: false
 	})).on('error', function(e) {
