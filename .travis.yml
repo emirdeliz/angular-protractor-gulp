@@ -14,9 +14,9 @@ cache:
 before_script:
     - npm install -g bower
     - bower install
+    - node_modules/protractor/bin/webdriver-manager update
 
 script:
-    # start xvbfb, required for e2e tests
     - Xvfb :99 &
     - export DISPLAY=:99
     - sleep 10 # give xvfb some time to start
