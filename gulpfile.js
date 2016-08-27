@@ -81,7 +81,7 @@ gulp.task('watch', ['build'], function () {
 });
 
 gulp.task('webserver', function() {
-    return gulp.src('build').pipe(webserver({
+    gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
         open: false
