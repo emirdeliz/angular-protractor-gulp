@@ -2,8 +2,6 @@ describe('vehicle.new', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
 
     element(by.css('a[ng-click*="addCar"]')).click();
-    element(by.model('vehicle.plate')).sendKeys('AAA-9999');
-    element(by.model('vehicle.value')).sendKeys('');
 
     it('validate data befor save', function() {
         element(by.css('a[ng-click*="save"]')).getAttribute('disabled').then(function(value) {
