@@ -5,5 +5,6 @@ exports.config = {
         browserName: 'chrome',
     	shardTestFiles: true,
         maxInstances: 2
-    }
+    },
+    framework: 'jasmine2'
 }
