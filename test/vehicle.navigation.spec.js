@@ -1,6 +1,6 @@
 describe('navigation', function() {
     console.log('navigation...')
-    browser.get('http://localhost:8000/#/vehicle/list');
+    browser.get('http://127.0.0.1:8000/#/vehicle/list');
     browser.wait(function () {
         browser.executeScript(function () {
 

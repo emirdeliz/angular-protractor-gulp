@@ -93,7 +93,9 @@ gulp.task('test', function(done) {
     var stream = gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
-        open: false
+        open: false,
+        host: '127.0.0.1',
+        port: '8000'
     })).on('end', function(e) {
         gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
     	   .pipe(angularProtractor({
