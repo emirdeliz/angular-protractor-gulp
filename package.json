@@ -7,7 +7,7 @@
   },
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp.js",
-    "test": "webdriver-manager start --standalone & sleep 30 && (gulp & protractor protractor.config.js)"
+    "test": "gulp & (sleep 10 && protractor protractor.config.js)"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
