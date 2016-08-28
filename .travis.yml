@@ -34,6 +34,7 @@ before_install:
 
 before_script:
     - ls
+    - webdriver-manager update
     - npm install -g bower webdriver-manager protractor
     - bower install
     - sleep 10
