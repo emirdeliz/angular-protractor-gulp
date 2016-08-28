@@ -88,17 +88,25 @@ gulp.task('webserver', function() {
     }));
 });
 
-// kill -9 $(lsof -ti tcp:4444)
-gulp.task('test', ['webserver'], function(done) {
-    return gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
-	   .pipe(angularProtractor({
-		configFile: 'protractor.config.js',
-		args: ['--baseUrl', 'http://127.0.0.1:8080'],
-		autoStartStopServer: true,
-		debug: false
-	})).on('error', function(e) {
-        console.log('Error: ' + e.message);
-        throw e;
+// kill -9 $(lsof -ti tcp::8000)
+gulp.task('test', function(done) {
+    var stream = gulp.src('build').pipe(webserver({
+        livereload: true,
+        directoryListing: false,
+        open: false
+    })).on('end', function(e) {
+        gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
+    	   .pipe(angularProtractor({
+    		configFile: 'protractor.config.js',
+    		args: ['--baseUrl', 'http://127.0.0.1:8080'],
+    		autoStartStopServer: true,
+    		debug: false
+    	})).on('error', function(e) {
+            console.log('Error: ' + e.message);
+            throw e;
+        }).on('end', function() {
+            stream.emit('kill');
+        })
     })
 });
 
