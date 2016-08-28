@@ -23,6 +23,7 @@
     "gulp-util": "^2.2.16",
     "gulp-watch": "^0.6.5",
     "gulp-webserver": "^0.9.1",
+    "jasmine-core": "^2.4.1",
     "minimist": "^0.1.0"
   },
   "dependencies": {}

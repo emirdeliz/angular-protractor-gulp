@@ -1,22 +1,6 @@
 describe('vehicle.save', function() {
     console.log('vehicle.save...')
     browser.get('http://localhost:8000/#/vehicle/list');
-    browser.wait(function () {
-        browser.executeScript(function () {
-
-            console.log('edit window.angular >>>> ' + window.angular)
-            console.log('edit window.location.href >>>> ' + window.location.href)
-
-            return {
-                url: window.location.href,
-                haveAngular: window.angular
-            };
-        }).then(function (obj) {
-            loaded = (obj.url == expectedUrl && obj.haveAngular);
-        });
-
-        return loaded;
-    }, 100);
 
     element(by.css('a[ng-click*="addCar"]')).click();
     element(by.model('vehicle.plate')).sendKeys('HHH-0000');

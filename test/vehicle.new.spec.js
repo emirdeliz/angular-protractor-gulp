@@ -1,22 +1,6 @@
 describe('vehicle.edit', function() {
     console.log('vehicle.edit...')
     browser.get('http://localhost:8000/#/vehicle/list');
-    browser.wait(function () {
-        browser.executeScript(function () {
-
-            console.log('new window.angular >>>> ' + window.angular)
-            console.log('new window.location.href >>>> ' + window.location.href)
-
-            return {
-                url: window.location.href,
-                haveAngular: window.angular
-            };
-        }).then(function (obj) {
-            loaded = (obj.url == expectedUrl && obj.haveAngular);
-        });
-
-        return loaded;
-    }, 100);
 
     expect(vehicles.first().$$('td').get(0).click();
 
