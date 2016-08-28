@@ -1,10 +1,18 @@
 describe('navigation', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
 
-    browser.wait(function() {
-        browser.ignoreSynchronization = true;
-        return by.css('a[ng-click*="addCar"]');
-    });
+    browser.wait(function () {
+        browser.executeScript(function () {
+            return {
+                url: window.location.href,
+                haveAngular: !!window.angular
+            };
+        }).then(function (obj) {
+            loaded = (obj.url == expectedUrl && obj.haveAngular);
+        });
+
+        return loaded;
+    }, timeout);
 
     it('go to save page', function() {
         element(by.css('a[ng-click*="addCar"]')).click();
