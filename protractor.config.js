@@ -1,7 +1,6 @@
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['test/vehicle.navigation.spec.js', 'test/vehicle.save.spec.js'],
-    rootElement: 'html',
     capabilities: {
         browserName: 'chrome',
     	shardTestFiles: true,
