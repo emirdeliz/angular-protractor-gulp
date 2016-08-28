@@ -54,10 +54,11 @@ gulp.task('build', ['build-bower-files', 'build-js', 'build-sass', 'build-html',
 
 gulp.task('inject', function () {
     var target = gulp.src('./src/index.html');
-    var sources = gulp.src([buildConfig.dist + '/vendor.min.js',
-    buildConfig.dist + '/bundle.min.js',
-    //buildConfig.dist + '/bundle.js',
-    buildConfig.dist + '/style.css'], {read: false});
+    var sources = gulp.src([
+        buildConfig.dist + '/vendor.min.js',
+        buildConfig.dist + '/bundle.min.js',
+        buildConfig.dist + '/style.css'
+    ], {read: false});
 
     target.pipe(inject(sources, {ignorePath: 'build'}))
     .pipe(gulp.dest(buildConfig.dist));
@@ -88,7 +89,7 @@ gulp.task('webserver', function() {
     }));
 });
 
-// kill -9 $(lsof -ti tcp::4444)
+// kill -9 $(lsof -ti tcp::4444) webdriver-manager start --standalone && gulp && protractor protractor.config.js
 gulp.task('check-jshint', function (){
     gulp.src(['./src/**/*.js', '!src/mock/**/*'])
     .pipe(jshint())
