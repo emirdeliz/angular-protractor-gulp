@@ -1,5 +1,9 @@
 describe('vehicle.save', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
+    browser.wait(function() {
+        browser.ignoreSynchronization = true;
+        return by.css('a[ng-click*="addCar"]');
+    });
 
     element(by.css('a[ng-click*="addCar"]')).click();
     element(by.model('vehicle.plate')).sendKeys('HHH-0000');

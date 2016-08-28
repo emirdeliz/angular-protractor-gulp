@@ -1,5 +1,9 @@
 describe('vehicle.edit', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
+    browser.wait(function() {
+        browser.ignoreSynchronization = true;
+        return by.css('a[ng-click*="save"]');
+    });
 
     expect(vehicles.first().$$('td').get(0).click();
 
