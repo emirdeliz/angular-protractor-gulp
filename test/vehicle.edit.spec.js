@@ -1,4 +1,5 @@
 describe('vehicle.save', function() {
+    console.log('vehicle.save...')
     browser.get('http://localhost:8000/#/vehicle/list');
     browser.wait(function () {
         browser.executeScript(function () {

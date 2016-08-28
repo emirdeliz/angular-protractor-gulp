@@ -1,4 +1,5 @@
 describe('navigation', function() {
+    console.log('navigation...')
     browser.get('http://localhost:8000/#/vehicle/list');
     browser.wait(function () {
         browser.executeScript(function () {
