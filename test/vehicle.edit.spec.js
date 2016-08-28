@@ -11,7 +11,7 @@ describe('vehicle.save', function() {
         });
 
         return loaded;
-    }, timeout);
+    }, 100);
 
     element(by.css('a[ng-click*="addCar"]')).click();
     element(by.model('vehicle.plate')).sendKeys('HHH-0000');

@@ -1,6 +1,6 @@
 describe('vehicle.edit', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
-    
+
     browser.wait(function () {
         browser.executeScript(function () {
             return {
@@ -12,7 +12,7 @@ describe('vehicle.edit', function() {
         });
 
         return loaded;
-    }, timeout);
+    }, 100);
 
     expect(vehicles.first().$$('td').get(0).click();
 

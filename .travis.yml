@@ -36,7 +36,7 @@ before_script:
     - npm install -g bower webdriver-manager
     - bower install
     - webdriver-manager update
-    - sleep 30
+    - sleep 10
 
 script:
     - npm run test

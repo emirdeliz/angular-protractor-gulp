@@ -12,7 +12,7 @@ describe('navigation', function() {
         });
 
         return loaded;
-    }, timeout);
+    }, 100);
 
     it('go to save page', function() {
         element(by.css('a[ng-click*="addCar"]')).click();
