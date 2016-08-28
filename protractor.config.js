@@ -5,7 +5,11 @@ exports.config = {
     rootElement: 'html',
     capabilities: {
         browserName: 'chrome',
-    	shardTestFiles: true,
+        shardTestFiles: true,
         maxInstances: 2
-    }
+    },
+    maxSessions: 1,
+    allScriptsTimeout: 40000,
+    getPageTimeout: 40000,
+    rootElement: 'html'
 }
