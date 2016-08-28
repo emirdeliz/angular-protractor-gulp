@@ -40,4 +40,4 @@ before_script:
     - sleep 10
 
 script:
-    - webdriver-manager start --standalone & sleep 15 & npm run test
+    - npm run test
