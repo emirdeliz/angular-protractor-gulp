@@ -93,16 +93,14 @@ gulp.task('test', function(done) {
     var stream = gulp.src('build').pipe(webserver({
         livereload: true,
         directoryListing: false,
-        open: false,
-        host: '127.0.0.1',
-        port: '8000'
+        open: true
     })).on('end', function(e) {
         gulp.src(['./test/vehicle.navigation.spec.js', './test/vehicle.save.spec.js'])
     	   .pipe(angularProtractor({
     		configFile: 'protractor.config.js',
     		args: ['--baseUrl', 'http://127.0.0.1:8080'],
     		autoStartStopServer: true,
-    		debug: false
+    		debug: true
     	})).on('error', function(e) {
             console.log('Error: ' + e.message);
             throw e;
