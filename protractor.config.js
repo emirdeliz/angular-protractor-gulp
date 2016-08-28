@@ -5,6 +5,6 @@ exports.config = {
         shardTestFiles: true,
         maxInstances: 2
     },
-    allScriptsTimeout: 15000,
-    getPageTimeout: 15000
+    allScriptsTimeout: 55000,
+    getPageTimeout: 55000
 }
