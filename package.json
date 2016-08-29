@@ -7,7 +7,8 @@
   },
   "scripts": {
     "gulp": "node node_modules/gulp/bin/gulp.js",
-    "test": "gulp & (sleep 15 && protractor protractor.config.js)"
+    "test": "gulp & (sleep 15 && protractor protractor.config.js)",
+    "build": "node node_modules/gulp/bin/gulp.js build"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
