@@ -54,10 +54,15 @@ gulp.task('build', ['build-bower-files', 'build-js', 'build-sass', 'build-html',
 
 gulp.task('inject', function () {
     var target = gulp.src('./src/index.html');
+
+    console.log("buildConfig.dist + '/vendor.min.js': " + buildConfig.dist + '/' + buildConfig.fileNameVendor)
+    console.log("buildConfig.dist + '/bundle.min.js': " + buildConfig.dist + '/' + buildConfig.fileNameJs)
+    console.log("buildConfig.dist + '/style.css': " + buildConfig.dist + '/' + buildConfig.fileNameCss)
+
     var sources = gulp.src([
-        buildConfig.dist + '/vendor.min.js',
-        buildConfig.dist + '/bundle.min.js',
-        buildConfig.dist + '/style.css'
+        buildConfig.dist + '/' + buildConfig.fileNameVendor,
+        buildConfig.dist + '/' + buildConfig.fileNameJs,
+        buildConfig.dist + '/' + buildConfig.fileNameCss
     ], {read: false});
 
     target.pipe(inject(sources, {ignorePath: 'build'}))
