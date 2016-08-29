@@ -14,6 +14,7 @@ var webserver = require('gulp-webserver');
 var mainBowerFiles = require('gulp-main-bower-files');
 var gulpFilter = require('gulp-filter');
 var inject = require('gulp-inject');
+var runSequence = require('run-sequence');
 
 gulp.task('build-js', function () {
     gulp.src(buildConfig.jsFiles)
@@ -50,7 +51,9 @@ gulp.task('build-img', function () {
     .pipe(gulp.dest(buildConfig.dist + '/imgs'));
 });
 
-gulp.task('build', ['build-bower-files', 'build-js', 'build-sass', 'build-html', 'build-assets', 'inject']);
+gulp.task('build', function(callback) {
+    runSequence(['build-bower-files', 'build-js', 'build-sass', 'build-html', 'build-assets', 'inject']);
+});
 
 gulp.task('inject', function () {
     var target = gulp.src('./src/index.html');
