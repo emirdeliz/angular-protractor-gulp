@@ -60,9 +60,6 @@ gulp.task('build-inject', function(callback) {
 });
 
 gulp.task('inject', function () {
-
-    console.log('buildConfig.dist ' + buildConfig.dist)
-
     var target = gulp.src('./src/index.html');
     var sources = gulp.src([
         buildConfig.dist + '/' + buildConfig.fileNameVendor,

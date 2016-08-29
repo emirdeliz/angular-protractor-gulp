@@ -36,12 +36,8 @@ before_script:
     - ls
     - npm install -g bower webdriver-manager protractor
     - npm run build
-    - cd build
-    - ls
-    - cd ..
     - webdriver-manager update
     - bower install
-    - sleep 10
 
 script:
     - npm run test
