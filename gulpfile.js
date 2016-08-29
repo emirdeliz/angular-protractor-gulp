@@ -57,11 +57,6 @@ gulp.task('build', function(callback) {
 
 gulp.task('inject', function () {
     var target = gulp.src('./src/index.html');
-
-    console.log("buildConfig.dist + '/vendor.min.js': " + buildConfig.dist + '/' + buildConfig.fileNameVendor)
-    console.log("buildConfig.dist + '/bundle.min.js': " + buildConfig.dist + '/' + buildConfig.fileNameJs)
-    console.log("buildConfig.dist + '/style.css': " + buildConfig.dist + '/' + buildConfig.fileNameCss)
-
     var sources = gulp.src([
         buildConfig.dist + '/' + buildConfig.fileNameVendor,
         buildConfig.dist + '/' + buildConfig.fileNameJs,

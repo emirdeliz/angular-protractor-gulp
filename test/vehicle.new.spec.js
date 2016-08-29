@@ -1,11 +1,5 @@
 describe('vehicle.new', function() {
     browser.get('http://localhost:8000/#/vehicle/list');
-    browser.wait(function() {
-        browser.ignoreSynchronization = true;
-        var ret = by.css('a[ng-click*="addCar"]');
-        browser.ignoreSynchronization = false;
-        return ret;
-    }, 100);
 
     element(by.css('a[ng-click*="addCar"]')).click();
 
